@@ -280,6 +280,7 @@ describe('ToolRegistry', () => {
       expect(mockDiscoverMcpTools).toHaveBeenCalledWith(
         mcpServerConfigVal,
         undefined,
+        undefined,
         toolRegistry,
       );
       // We no longer check these as discoverMcpTools is mocked
@@ -308,6 +309,7 @@ describe('ToolRegistry', () => {
       await toolRegistry.discoverTools();
       expect(mockDiscoverMcpTools).toHaveBeenCalledWith(
         {},
+        undefined,
         'mcp-server-start-command --param',
         toolRegistry,
       );
@@ -326,6 +328,7 @@ describe('ToolRegistry', () => {
         {
           'failing-mcp': { command: 'fail-cmd' },
         },
+        undefined,
         undefined,
         toolRegistry,
       );

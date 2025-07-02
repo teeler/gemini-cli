@@ -158,6 +158,7 @@ describe('discoverMcpTools', () => {
   it('should do nothing if no MCP servers or command are configured', async () => {
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -188,6 +189,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -235,6 +237,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -274,6 +277,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -308,6 +312,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -351,6 +356,7 @@ describe('discoverMcpTools', () => {
 
       await discoverMcpTools(
         mockConfig.getMcpServers() ?? {},
+        undefined,
         mockConfig.getMcpServerCommand(),
         mockToolRegistry as any,
       );
@@ -450,6 +456,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -518,6 +525,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -552,6 +560,7 @@ describe('discoverMcpTools', () => {
     await expect(
       discoverMcpTools(
         mockConfig.getMcpServers() ?? {},
+        undefined,
         mockConfig.getMcpServerCommand(),
         mockToolRegistry as any,
       ),
@@ -566,6 +575,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -591,6 +601,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -616,6 +627,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );
@@ -640,6 +652,7 @@ describe('discoverMcpTools', () => {
 
     await discoverMcpTools(
       mockConfig.getMcpServers() ?? {},
+      undefined,
       mockConfig.getMcpServerCommand(),
       mockToolRegistry as any,
     );

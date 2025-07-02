@@ -127,11 +127,20 @@ export function getMCPDiscoveryState(): MCPDiscoveryState {
 
 export async function discoverMcpTools(
   mcpServers: Record<string, MCPServerConfig>,
+  mcpAllowedUnsafeServers: string[] | undefined,
   mcpServerCommand: string | undefined,
   toolRegistry: ToolRegistry,
 ): Promise<void> {
   // Set discovery state to in progress
   mcpDiscoveryState = MCPDiscoveryState.IN_PROGRESS;
+
+  if (mcpAllowedUnsafeServers) {
+    mcpServers = Object.fromEntries(
+      Object.entries(mcpServers).filter(([key]) =>
+        mcpAllowedUnsafeServers.includes(key),
+      ),
+    );
+  }
 
   try {
     if (mcpServerCommand) {

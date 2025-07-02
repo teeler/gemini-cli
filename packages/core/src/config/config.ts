@@ -110,6 +110,7 @@ export interface ConfigParameters {
   toolDiscoveryCommand?: string;
   toolCallCommand?: string;
   mcpServerCommand?: string;
+  mcpAllowedUnsafeServers?: string[];
   mcpServers?: Record<string, MCPServerConfig>;
   userMemory?: string;
   geminiMdFileCount?: number;
@@ -147,6 +148,7 @@ export class Config {
   private readonly toolDiscoveryCommand: string | undefined;
   private readonly toolCallCommand: string | undefined;
   private readonly mcpServerCommand: string | undefined;
+  private readonly mcpAllowedUnsafeServers: string[] | undefined;
   private readonly mcpServers: Record<string, MCPServerConfig> | undefined;
   private userMemory: string;
   private geminiMdFileCount: number;
@@ -185,6 +187,7 @@ export class Config {
     this.toolDiscoveryCommand = params.toolDiscoveryCommand;
     this.toolCallCommand = params.toolCallCommand;
     this.mcpServerCommand = params.mcpServerCommand;
+    this.mcpAllowedUnsafeServers = params.mcpAllowedUnsafeServers;
     this.mcpServers = params.mcpServers;
     this.userMemory = params.userMemory ?? '';
     this.geminiMdFileCount = params.geminiMdFileCount ?? 0;
@@ -340,6 +343,10 @@ export class Config {
 
   getMcpServerCommand(): string | undefined {
     return this.mcpServerCommand;
+  }
+
+  getMcpAllowedUnsafeServers(): string[] | undefined {
+    return this.mcpAllowedUnsafeServers;
   }
 
   getMcpServers(): Record<string, MCPServerConfig> | undefined {

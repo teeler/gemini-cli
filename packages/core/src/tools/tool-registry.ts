@@ -186,6 +186,7 @@ export class ToolRegistry {
     // discover tools using MCP servers, if configured
     await discoverMcpTools(
       this.config.getMcpServers() ?? {},
+      this.config.getMcpAllowedUnsafeServers(),
       this.config.getMcpServerCommand(),
       this,
     );

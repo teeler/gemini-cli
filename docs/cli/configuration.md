@@ -140,6 +140,14 @@ In addition to a project settings file, a project's `.gemini` directory can cont
     }
     ```
 
+- **`mcp_allowed_unsafe_servers`** (array of strings):
+  - **Description:** A list of trusted MCP server names. If this property is set, only the MCP servers whose names (the keys in the `mcpServers` object) are in this list will be enabled. This is useful for ensuring that only a specific set of trusted MCP servers are used.
+  - **Default:** All configured MCP servers are enabled.
+  - **Example:**
+    ```json
+    "mcp_allowed_unsafe_servers": ["myPythonServer", "myDockerServer"]
+    ```
+
 - **`checkpointing`** (object):
   - **Description:** Configures the checkpointing feature, which allows you to save and restore conversation and file states. See the [Checkpointing documentation](../checkpointing.md) for more details.
   - **Default:** `{"enabled": false}`

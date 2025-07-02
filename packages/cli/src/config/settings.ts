@@ -44,6 +44,7 @@ export interface Settings {
   toolDiscoveryCommand?: string;
   toolCallCommand?: string;
   mcpServerCommand?: string;
+  mcp_allowed_unsafe_servers?: string[];
   mcpServers?: Record<string, MCPServerConfig>;
   showMemoryUsage?: boolean;
   contextFileName?: string | string[];

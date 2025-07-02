@@ -211,6 +211,7 @@ export async function loadCliConfig(
     toolDiscoveryCommand: settings.toolDiscoveryCommand,
     toolCallCommand: settings.toolCallCommand,
     mcpServerCommand: settings.mcpServerCommand,
+    mcpAllowedUnsafeServers: settings.mcp_allowed_unsafe_servers,
     mcpServers,
     userMemory: memoryContent,
     geminiMdFileCount: fileCount,
