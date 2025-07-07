@@ -558,6 +558,18 @@ describe('loadCliConfig with allowed-mcp-server-names', () => {
     const config = await loadCliConfig(baseSettings, [], 'test-session');
     expect(config.getMcpServers()).toEqual({});
   });
+
+  it('should allow all MCP servers when mcp-server-dev is true, even if allowed-mcp-server-names is set', async () => {
+    process.argv = [
+      'node',
+      'script.js',
+      '--mcp-server-dev',
+      '--allowed-mcp-server-names',
+      'server1',
+    ];
+    const config = await loadCliConfig(baseSettings, [], 'test-session');
+    expect(config.getMcpServers()).toEqual(baseSettings.mcpServers);
+  });
 });
 
 describe('loadCliConfig extensions', () => {

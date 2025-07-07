@@ -53,6 +53,7 @@ interface CliArgs {
   allowedMcpServerNames: string[] | undefined;
   extensions: string[] | undefined;
   listExtensions: boolean | undefined;
+  mcpServerDev: boolean | undefined;
 }
 
 async function parseArguments(): Promise<CliArgs> {
@@ -155,6 +156,7 @@ async function parseArguments(): Promise<CliArgs> {
       type: 'array',
       string: true,
       description: 'Allowed MCP server names',
+      hidden: true,
     })
     .option('extensions', {
       alias: 'e',
@@ -167,6 +169,12 @@ async function parseArguments(): Promise<CliArgs> {
       alias: 'l',
       type: 'boolean',
       description: 'List all available extensions and exit.',
+    })
+    .option('mcp-server-dev', {
+      type: 'boolean',
+      description: 'Allow all MCP server names (for development)',
+      default: false,
+      hidden: true,
     })
     .version(await getCliVersion()) // This will enable the --version flag based on package.json
     .alias('v', 'version')
@@ -247,7 +255,9 @@ export async function loadCliConfig(
   let mcpServers = mergeMcpServers(settings, activeExtensions);
   const excludeTools = mergeExcludeTools(settings, activeExtensions);
 
-  if (argv.allowedMcpServerNames) {
+  if (argv.mcpServerDev) {
+    // Allow all servers in dev mode, do nothing.
+  } else if (argv.allowedMcpServerNames) {
     const allowedNames = new Set(argv.allowedMcpServerNames.filter(Boolean));
     if (allowedNames.size > 0) {
       mcpServers = Object.fromEntries(
