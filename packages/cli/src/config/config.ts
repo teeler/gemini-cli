@@ -176,6 +176,7 @@ async function parseArguments(): Promise<CliArgs> {
       default: false,
       hidden: true,
     })
+  
     .version(await getCliVersion()) // This will enable the --version flag based on package.json
     .alias('v', 'version')
     .help()
